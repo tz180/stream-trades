@@ -44,6 +44,7 @@ trades_to_show = my_trade_list.loc[trades_selected]
 st.dataframe(trades_to_show)
 
 st.write(list(trades_to_show))
+st.write(trades_to_show['Amount'])
 col1, col2, col3 = st.columns(3)
 
 col1.metric("# of Trades", trades_to_show.shape[0], "0")
