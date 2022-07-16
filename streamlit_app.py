@@ -36,7 +36,7 @@ else:
 my_trade_list = my_trade_list.set_index('Symbol')
 
 # Let's put a pick list here so they can pick the fruit they want to include 
-trades_selected = st.multiselect("Pick some trades:", list(my_trade_list.index), ['FAGIX'])
+trades_selected = st.multiselect("Pick some trades:", list(my_trade_list.index))
 trades_to_show = my_trade_list.loc[trades_selected]
 
 # Display the table on the page.
