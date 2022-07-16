@@ -22,9 +22,11 @@ count_col = my_trade_list.shape[1]  # Gives number of columns
 
 action_type = st.radio(
      "What type of trades do you want to view",
-     ('Buy', 'Sell', 'Dividend'))
+     ('All', 'Buy', 'Sell', 'Dividend'))
 
-if action_type == 'Buy':
+if action_type == 'All':
+    my_trade_list = my_trade_list
+elif action_type == 'Buy':
     my_trade_list = my_trade_list.loc[my_trade_list['Action'].str.contains("BOUGHT")]
 elif action_type == 'Sell':
     my_trade_list = my_trade_list.loc[my_trade_list['Action'].str.contains("SOLD")]
