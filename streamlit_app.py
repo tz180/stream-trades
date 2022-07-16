@@ -1,22 +1,32 @@
 #Creating personal streamlit app
 
-import streamlit
-import pandas
+import streamlit as st
+import pandas as pd
 import requests
 from urllib.error import URLError
 
-streamlit.title('My Trades')
+st.title('My Trades')
 
-streamlit.header('Complete List w/ Filter')
+st.header('Complete List w/ Filter')
 
-my_trade_list = pandas.read_csv("Accounts_History_TZ.csv")
+my_trade_list = pd.read_csv("Accounts_History_TZ.csv")
 
-my_trade_list = my_trade_list.set_index('Symbol')
+my_trade_list = my_trade_list.set_index('Symbol').drop_duplicates()
 
+symbol = my_trade_list['Symbol']
+symbol_choice = st.sidebar.selectbox('Select which security:', symbol)
+
+years = my_trade_list["year"].loc[my_trade_list["Symbol"]] = symbol_choice
+year_choice = st.sidebar.selectbox('', years)
+
+count_row = my_trade_list.shape[0]  # Gives number of rows
+count_col = my_trade_list.shape[1]  # Gives number of columns
 
 # Let's put a pick list here so they can pick the fruit they want to include 
-trades_selected = streamlit.multiselect("Pick some trades:", list(my_trade_list.index), ['FAGIX'])
+trades_selected = st.multiselect("Pick some trades:", list(my_trade_list.index), ['FAGIX'])
 trades_to_show = my_trade_list.loc[trades_selected]
 
 # Display the table on the page.
-streamlit.dataframe(trades_to_show)
+st.dataframe(trades_to_show)
+
+
