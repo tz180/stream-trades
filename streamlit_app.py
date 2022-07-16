@@ -9,7 +9,7 @@ streamlit.title('My Trades')
 
 streamlit.header('Complete List w/ Filter')
 
-my_trade_list = pandas.read_csv("/Users/tylerzon/Documents/Accounts_History_TZ.csv")
+my_trade_list = pandas.read_csv('/Users/tylerzon/Documents/Accounts_History_TZ.csv')
 
 my_trade_list = my_trade_list.set_index('Symbol')
 
