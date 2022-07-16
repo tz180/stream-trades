@@ -24,8 +24,12 @@ action_type = st.radio(
      "What type of trades do you want to view",
      ('Buy', 'Sell', 'Dividend'))
 
-if action_type = 'Buy':
+if action_type == 'Buy':
     my_trade_list = my_trade_list.loc[my_trade_list['Action'].str.contains("BOUGHT")]
+elif action_type == 'Sell':
+    my_trade_list = my_trade_list.loc[my_trade_list['Action'].str.contains("SOLD")]
+else:
+    my_trade_list = my_trade_list.loc[my_trade_list['Action'].str.contains("DIVIDEND")]
 
 my_trade_list = my_trade_list.set_index('Symbol')
 
