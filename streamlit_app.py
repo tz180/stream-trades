@@ -11,13 +11,11 @@ st.header('Complete List w/ Filter')
 
 my_trade_list = pd.read_csv("Accounts_History_TZ.csv")
 
+#symbol = my_trade_list['Symbol']
+#symbol_choice = st.sidebar.selectbox('Select which security:', symbol)
 
-
-symbol = my_trade_list['Symbol']
-symbol_choice = st.sidebar.selectbox('Select which security:', symbol)
-
-years = my_trade_list["Run Date"].loc[my_trade_list["Symbol"] == symbol_choice]
-year_choice = st.sidebar.selectbox('', years)
+#years = my_trade_list["Run Date"].loc[my_trade_list["Symbol"] == symbol_choice]
+#year_choice = st.sidebar.selectbox('', years)
 
 count_row = my_trade_list.shape[0]  # Gives number of rows
 count_col = my_trade_list.shape[1]  # Gives number of columns
@@ -30,5 +28,11 @@ trades_to_show = my_trade_list.loc[trades_selected]
 
 # Display the table on the page.
 st.dataframe(trades_to_show)
+
+col1, col2, col3 = st.columns(3)
+
+col1.metric("# of Trades", trades_to_show.shape[0], "0")
+col1.metric("# of Trades", trades_to_show.shape[0], "0")
+
 
 
