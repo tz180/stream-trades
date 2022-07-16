@@ -16,7 +16,7 @@ my_trade_list = pd.read_csv("Accounts_History_TZ.csv")
 symbol = my_trade_list['Symbol']
 symbol_choice = st.sidebar.selectbox('Select which security:', symbol)
 
-years = my_trade_list["year"].loc[my_trade_list["Symbol"]] = symbol_choice
+years = my_trade_list["Run Date"].loc[my_trade_list["Symbol"]] = symbol_choice
 year_choice = st.sidebar.selectbox('', years)
 
 count_row = my_trade_list.shape[0]  # Gives number of rows
