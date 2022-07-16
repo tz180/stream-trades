@@ -20,6 +20,13 @@ my_trade_list = pd.read_csv("Accounts_History_TZ.csv")
 count_row = my_trade_list.shape[0]  # Gives number of rows
 count_col = my_trade_list.shape[1]  # Gives number of columns
 
+action_type = st.radio(
+     "What type of trades do you want to view",
+     ('Buy', 'Sell', 'Dividend'))
+
+if action_type = 'Buy':
+    my_trade_list = my_trade_list.loc[my_trade_list['Action'].str.contains("BOUGHT")]
+
 my_trade_list = my_trade_list.set_index('Symbol')
 
 # Let's put a pick list here so they can pick the fruit they want to include 
