@@ -46,7 +46,7 @@ st.dataframe(trades_to_show)
 col1, col2, col3 = st.columns(3)
 
 col1.metric("# of Trades", trades_to_show.shape[0], "0")
-col2.metric("Total Gain / Loss", trades_to_show.loc['Amount'].sum(), "0")
+col2.metric("Total Gain / Loss", trades_to_show.loc["Amount"].sum(), "0")
 
 
 
