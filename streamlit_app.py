@@ -11,7 +11,7 @@ st.header('Complete List w/ Filter')
 
 my_trade_list = pd.read_csv("Accounts_History_TZ.csv")
 
-my_trade_list = my_trade_list.set_index('Symbol').drop_duplicates()
+#my_trade_list = my_trade_list.set_index('Symbol').drop_duplicates()
 
 symbol = my_trade_list['Symbol']
 symbol_choice = st.sidebar.selectbox('Select which security:', symbol)
