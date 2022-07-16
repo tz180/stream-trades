@@ -20,6 +20,7 @@ my_trade_list = pd.read_csv("Accounts_History_TZ.csv")
 count_row = my_trade_list.shape[0]  # Gives number of rows
 count_col = my_trade_list.shape[1]  # Gives number of columns
 
+
 action_type = st.radio(
      "What type of trades do you want to view",
      ('All', 'Buy', 'Sell', 'Dividend'))
@@ -36,7 +37,7 @@ else:
 my_trade_list = my_trade_list.set_index('Symbol')
 
 # Let's put a pick list here so they can pick the fruit they want to include 
-trades_selected = st.multiselect("Pick some trades:", list(my_trade_list.index))
+trades_selected = st.multiselect("Pick some trades:", list(my_trade_list.index.drop_duplicates()))
 trades_to_show = my_trade_list.loc[trades_selected]
 
 # Display the table on the page.
