@@ -50,6 +50,15 @@ col2.metric("# of Columns", trades_to_show.shape[1], "0")
 col3.metric("Total Gain / Loss", trades_to_show['Amount'].sum(), "0")
 
 #ideas
+st.header('Holdings as of Today')
+
+my_holdings_list = pd.read_csv("Portfolio_Positions_Jul-16-2022.csv") 
+
+my_holdings_list = my_holdings_list.set_index('Symbol')
+holdings_selected = st.multiselect("Pick some trades:", list(my_holdings_list.index.drop_duplicates()))
+holdings_to_show = my_holdings_list.loc[trades_selected]
+st.dataframe(holdings_to_show)
+
 """Add holdings list as well. Let users search through it too. 
 Use it to calc how much you've made on a given security. Basically current amounts - amount in trading data frame
 
