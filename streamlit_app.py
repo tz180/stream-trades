@@ -43,13 +43,16 @@ trades_to_show = my_trade_list.loc[trades_selected]
 # Display the table on the page.
 st.dataframe(trades_to_show)
 
-st.write(list(trades_to_show))
-st.write(trades_to_show['Amount'])
 col1, col2, col3 = st.columns(3)
 
 col1.metric("# of Trades", trades_to_show.shape[0], "0")
 col2.metric("# of Columns", trades_to_show.shape[1], "0")
 col3.metric("Total Gain / Loss", trades_to_show['Amount'].sum(), "0")
 
+#ideas
+"""Add holdings list as well. Let users search through it too. 
+Use it to calc how much you've made on a given security. Basically current amounts - amount in trading data frame
+
+Manage state better so it doesn't change every time you change your selection."""
 
 
